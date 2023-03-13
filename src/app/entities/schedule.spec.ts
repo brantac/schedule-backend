@@ -6,6 +6,7 @@ describe('Schedule', () => {
       service: 'Casal',
       scheduledDate: new Date('07/03/2023'),
       time: '10:00',
+      clientId: 'asdasdas',
     });
 
     expect(schedule.status).toBe('Agendado');
