@@ -10,6 +10,7 @@ interface ScheduleProps {
   scheduledDate: Date;
   time: string;
   status: PhotoshootStatus;
+  clientId: string;
 }
 
 type CreateScheduleProps = Omit<ScheduleProps, 'createdAt' | 'status'>;
