@@ -32,7 +32,7 @@ export class ClientsController {
   async findAll() {
     const { clients } = await this.findAllClients.execute();
 
-    return { clients: clients };
+    return { clients: clients.map((client) => ClientViewModel.toHttp(client)) };
   }
 
   @Get(':id/delete')
