@@ -48,6 +48,10 @@ export class Schedule {
     return this.scheduleProps.status;
   }
 
+  public get clientId(): string {
+    return this.scheduleProps.clientId;
+  }
+
   private create(props: CreateScheduleProps): void {
     this.scheduleProps = {
       ...props,

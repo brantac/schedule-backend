@@ -29,6 +29,6 @@ export class InMemorySchedulesRepository implements SchedulesRepository {
   }
 
   async findManyByClientId(id: string): Promise<Schedule[]> {
-    throw new Error('Method not implemented.');
+    return this.schedules.filter((s) => s.clientId === id);
   }
 }
