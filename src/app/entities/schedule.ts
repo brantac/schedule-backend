@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto';
+
 type Service = 'Gestante' | 'Smash The Cake' | 'Casal' | '15 anos';
 
 type PhotoshootStatus = 'Agendado' | 'Concluído' | 'Cancelado';
@@ -13,10 +15,16 @@ interface ScheduleProps {
 type CreateScheduleProps = Omit<ScheduleProps, 'createdAt' | 'status'>;
 
 export class Schedule {
+  private _id: string;
   private scheduleProps: ScheduleProps;
 
-  constructor(props: CreateScheduleProps) {
+  constructor(props: CreateScheduleProps, id?: string) {
     this.create(props);
+    this._id = id ?? randomUUID();
+  }
+
+  public get id(): string {
+    return this._id;
   }
 
   public get service(): Service {
