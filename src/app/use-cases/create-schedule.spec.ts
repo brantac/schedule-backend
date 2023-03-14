@@ -1,3 +1,4 @@
+import { ScheduleDate } from '@app/entities/schedule-date';
 import { InMemorySchedulesRepository } from '@test/repositories/in-memory-schedules-repository';
 import { CreateSchedule } from './create-schedule';
 
@@ -10,11 +11,19 @@ describe('Create schedule use case', () => {
 
     createSchedule.execute({
       service: 'Gestante',
-      scheduledDate: new Date('20/03/2023'),
+      scheduledDate: new ScheduleDate({
+        day: 20,
+        month: 3,
+        year: 2023,
+        hours: 10,
+        minutes: 0,
+        seconds: 0,
+      }),
       time: '10:00',
       clientId: 'asfasf',
     });
 
     expect(schedulesRepository.schedules).toHaveLength(1);
+    console.log(schedulesRepository.schedules[0]);
   });
 });

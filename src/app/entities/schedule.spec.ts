@@ -1,10 +1,18 @@
 import { Schedule } from './schedule';
+import { ScheduleDate } from './schedule-date';
 
 describe('Schedule', () => {
   it('should create a new schedule', () => {
     const schedule = new Schedule({
       service: 'Casal',
-      scheduledDate: new Date('07/03/2023'),
+      scheduledDate: new ScheduleDate({
+        day: 20,
+        month: 3,
+        year: 2023,
+        hours: 10,
+        minutes: 0,
+        seconds: 0,
+      }),
       time: '10:00',
       clientId: 'asdasdas',
     });

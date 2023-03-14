@@ -1,9 +1,10 @@
 import { SchedulesRepository } from '@app/repositories/schedules-repository';
 import { Schedule, Service } from '@app/entities/schedule';
+import { ScheduleDate } from '@app/entities/schedule-date';
 
 interface CreateScheduleRequest {
   service: Service;
-  scheduledDate: Date;
+  scheduledDate: ScheduleDate;
   time: string;
   clientId: string;
 }
