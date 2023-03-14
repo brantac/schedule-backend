@@ -1,8 +1,8 @@
 import { randomUUID } from 'node:crypto';
 
-type Service = 'Gestante' | 'Smash The Cake' | 'Casal' | '15 anos';
+export type Service = 'Gestante' | 'Smash The Cake' | 'Casal' | '15 anos';
 
-type PhotoshootStatus = 'Agendado' | 'Concluído' | 'Cancelado';
+export type PhotoshootStatus = 'Agendado' | 'Concluído' | 'Cancelado';
 
 interface ScheduleProps {
   service: Service;
