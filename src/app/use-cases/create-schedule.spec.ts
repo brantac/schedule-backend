@@ -16,6 +16,5 @@ describe('Create schedule use case', () => {
     });
 
     expect(schedulesRepository.schedules).toHaveLength(1);
-    console.log(schedulesRepository.schedules[0]);
   });
 });
