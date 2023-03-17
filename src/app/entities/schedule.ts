@@ -4,7 +4,7 @@ export type Service = 'Gestante' | 'Smash The Cake' | 'Casal' | '15 anos';
 
 export type PhotoshootStatus = 'Agendado' | 'Concluído' | 'Cancelado';
 
-interface ScheduleProps {
+export interface ScheduleProps {
   service: Service;
   createdAt: Date;
   scheduledDate: Date;

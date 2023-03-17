@@ -1,12 +1,10 @@
 import { SchedulesRepository } from '@app/repositories/schedules-repository';
-import { Schedule, Service } from '@app/entities/schedule';
+import { Schedule, ScheduleProps } from '@app/entities/schedule';
 
-interface CreateScheduleRequest {
-  service: Service;
-  scheduledDate: Date;
-  time: string;
-  clientId: string;
-}
+type CreateScheduleRequest = Pick<
+  ScheduleProps,
+  'clientId' | 'service' | 'scheduledDate' | 'time'
+>;
 
 type CreateScheduleResponse = void;
 
