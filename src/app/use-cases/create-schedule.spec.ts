@@ -1,4 +1,3 @@
-import { ScheduleDate } from '@app/entities/schedule-date';
 import { InMemorySchedulesRepository } from '@test/repositories/in-memory-schedules-repository';
 import { CreateSchedule } from './create-schedule';
 
@@ -11,14 +10,7 @@ describe('Create schedule use case', () => {
 
     createSchedule.execute({
       service: 'Gestante',
-      scheduledDate: new ScheduleDate({
-        day: 20,
-        month: 3,
-        year: 2023,
-        hours: 10,
-        minutes: 0,
-        seconds: 0,
-      }),
+      scheduledDate: new Date(2023, 3, 20, 10, 0, 0),
       time: '10:00',
       clientId: 'asfasf',
     });

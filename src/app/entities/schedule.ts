@@ -1,5 +1,4 @@
 import { randomUUID } from 'node:crypto';
-import { ScheduleDate } from './schedule-date';
 
 export type Service = 'Gestante' | 'Smash The Cake' | 'Casal' | '15 anos';
 
@@ -8,7 +7,7 @@ export type PhotoshootStatus = 'Agendado' | 'Concluído' | 'Cancelado';
 interface ScheduleProps {
   service: Service;
   createdAt: Date;
-  scheduledDate: ScheduleDate;
+  scheduledDate: Date;
   time: string;
   status: PhotoshootStatus;
   clientId: string;
@@ -38,7 +37,7 @@ export class Schedule {
   }
 
   public get scheduledDate(): Date {
-    return this.scheduleProps.scheduledDate.scheduleDate;
+    return this.scheduleProps.scheduledDate;
   }
 
   public get time(): string {
