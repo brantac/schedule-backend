@@ -6,4 +6,5 @@ export abstract class SchedulesRepository {
   abstract save(schedule: Schedule): Promise<void>;
   abstract findById(id: string): Promise<Schedule>;
   abstract findManyByClientId(id: string): Promise<Schedule[]>;
+  abstract findAll(): Promise<Schedule[]>;
 }
