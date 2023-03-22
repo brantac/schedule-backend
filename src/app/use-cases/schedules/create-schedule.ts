@@ -1,5 +1,6 @@
 import { SchedulesRepository } from '@app/repositories/schedules-repository';
 import { Schedule, ScheduleProps } from '@app/entities/schedule';
+import { Injectable } from '@nestjs/common';
 
 type CreateScheduleRequest = Pick<
   ScheduleProps,
@@ -8,6 +9,7 @@ type CreateScheduleRequest = Pick<
 
 type CreateScheduleResponse = void;
 
+@Injectable()
 export class CreateSchedule {
   constructor(private schedulesRepository: SchedulesRepository) {}
 

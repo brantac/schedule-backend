@@ -1,7 +1,7 @@
 import { SchedulesRepository } from '@app/repositories/schedules-repository';
 import { Schedule } from '@app/entities/schedule';
 import { Injectable } from '@nestjs/common';
-import { ScheduleNotFound } from './errors/schedule-not-found';
+import { ScheduleNotFound } from '../errors/schedule-not-found';
 
 interface FindScheduleRequest {
   id: string;
