@@ -4,6 +4,7 @@ import { CreateClient } from '@app/use-cases/create-client';
 import { DeleteClient } from '@app/use-cases/delete-client';
 import { FindAllClients } from '@app/use-cases/find-all-clients';
 import { CreateSchedule } from '@app/use-cases/schedules/create-schedule';
+import { FindAllSchedules } from '@app/use-cases/schedules/find-all-schedules';
 import { FindSchedule } from '@app/use-cases/schedules/find-schedule';
 import { Module } from '@nestjs/common';
 import { InMemoryClientsRepository } from '@test/repositories/in-memory-clients-repository';
@@ -20,6 +21,7 @@ import { SchedulesController } from './controllers/schedules.controller';
     FindAllClients,
     CreateSchedule,
     FindSchedule,
+    FindAllSchedules,
     {
       provide: ClientsRepository,
       useClass: InMemoryClientsRepository,
