@@ -1,4 +1,5 @@
 import { CreateSchedule } from '@app/use-cases/schedules/create-schedule';
+import { FindAllSchedules } from '@app/use-cases/schedules/find-all-schedules';
 import { FindSchedule } from '@app/use-cases/schedules/find-schedule';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateScheduleBody } from '../dtos/create-schedule.body';
@@ -8,6 +9,7 @@ export class SchedulesController {
   constructor(
     private findSchedule: FindSchedule,
     private createSchedule: CreateSchedule,
+    private findAllSchedules: FindAllSchedules,
   ) {}
 
   @Post()
@@ -20,6 +22,13 @@ export class SchedulesController {
       service,
       time,
     });
+  }
+
+  @Get('findAll')
+  async findAll() {
+    const { schedules } = await this.findAllSchedules.execute();
+
+    return { schedules };
   }
 
   @Get(':id')
