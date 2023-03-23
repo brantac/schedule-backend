@@ -31,4 +31,8 @@ export class InMemorySchedulesRepository implements SchedulesRepository {
   async findManyByClientId(id: string): Promise<Schedule[]> {
     return this.schedules.filter((s) => s.clientId === id);
   }
+
+  async findAll(): Promise<Schedule[]> {
+    return this.schedules;
+  }
 }
