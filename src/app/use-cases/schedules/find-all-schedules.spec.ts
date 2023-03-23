@@ -7,35 +7,25 @@ describe('Find all schedules use case', () => {
     const schedulesRepository = new InMemorySchedulesRepository();
     const findAllSchedules = new FindAllSchedules(schedulesRepository);
 
-    await schedulesRepository.create(
-      new Schedule({
-        clientId: 'asfasf',
-        scheduledDate: new Date(2023, 3, 20, 10, 0, 0),
-        service: '15 anos',
-        time: '10:00',
-      }),
-    );
-    await schedulesRepository.create(
-      new Schedule({
-        clientId: 'asfasf',
-        scheduledDate: new Date(2023, 3, 20, 10, 0, 0),
-        service: '15 anos',
-        time: '10:00',
-      }),
-    );
-    await schedulesRepository.create(
-      new Schedule({
-        clientId: 'asfasf',
-        scheduledDate: new Date(2023, 3, 20, 10, 0, 0),
-        service: '15 anos',
-        time: '10:00',
-      }),
-    );
+    const scheduledDate = new Date(2023, 3, 20, 10, 0, 0);
 
-    const schedules = await findAllSchedules.execute();
+    const newSchedule = new Schedule({
+      clientId: 'asfasf',
+      scheduledDate: scheduledDate,
+      service: '15 anos',
+      time: '10:00',
+    });
 
-    expect(schedules[0]).toMatchObject<Date>(new Date(2023, 3, 20, 10, 0, 0));
+    await schedulesRepository.create(newSchedule);
+    await schedulesRepository.create(newSchedule);
+    await schedulesRepository.create(newSchedule);
+
+    const { schedules } = await findAllSchedules.execute();
 
     expect(schedules).toHaveLength(3);
+
+    expect(schedules[0]).toMatchObject<Schedule>(newSchedule);
+    expect(schedules[1]).toMatchObject<Schedule>(newSchedule);
+    expect(schedules[2]).toMatchObject<Schedule>(newSchedule);
   });
 });
