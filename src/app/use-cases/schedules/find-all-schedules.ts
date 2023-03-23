@@ -1,10 +1,12 @@
 import { SchedulesRepository } from '@app/repositories/schedules-repository';
 import { Schedule } from '@app/entities/schedule';
+import { Injectable } from '@nestjs/common';
 
 interface FindAllSchedulesResponse {
   schedules: Schedule[];
 }
 
+@Injectable()
 export class FindAllSchedules {
   constructor(private schedulesRepository: SchedulesRepository) {}
 
