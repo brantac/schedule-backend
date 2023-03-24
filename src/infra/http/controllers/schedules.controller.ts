@@ -3,6 +3,7 @@ import { FindAllSchedules } from '@app/use-cases/schedules/find-all-schedules';
 import { FindSchedule } from '@app/use-cases/schedules/find-schedule';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateScheduleBody } from '../dtos/create-schedule.body';
+import { ScheduleViewModel } from '../view-models/schedule-view-model';
 
 @Controller('schedules')
 export class SchedulesController {
@@ -28,7 +29,7 @@ export class SchedulesController {
   async findAll() {
     const { schedules } = await this.findAllSchedules.execute();
 
-    return { schedules };
+    return { schedules: schedules.map((v) => ScheduleViewModel.toHttp(v)) };
   }
 
   @Get(':id')
