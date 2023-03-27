@@ -1,3 +1,4 @@
+import { CancelSchedule } from '@app/use-cases/schedules/cancel-schedule';
 import { CreateSchedule } from '@app/use-cases/schedules/create-schedule';
 import { FindAllSchedules } from '@app/use-cases/schedules/find-all-schedules';
 import { FindSchedule } from '@app/use-cases/schedules/find-schedule';
@@ -11,6 +12,7 @@ export class SchedulesController {
     private findSchedule: FindSchedule,
     private createSchedule: CreateSchedule,
     private findAllSchedules: FindAllSchedules,
+    private cancelSchedule: CancelSchedule,
   ) {}
 
   @Post()
@@ -37,11 +39,12 @@ export class SchedulesController {
     const { schedule } = await this.findSchedule.execute({ id });
 
     return {
-      id: schedule.id,
-      clientId: schedule.clientId,
-      service: schedule.service,
-      scheduledDate: schedule.scheduledDate,
-      status: schedule.status,
+      schedule: ScheduleViewModel.toHttp(schedule),
     };
+  }
+
+  @Get(':id/cancel')
+  async cancel(@Param('id') id: string) {
+    await this.cancelSchedule.execute({ id });
   }
 }
