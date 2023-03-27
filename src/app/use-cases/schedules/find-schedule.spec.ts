@@ -43,4 +43,6 @@ describe('Find schedule use case', () => {
     );
     expect(schedule.status).toBe('Agendado');
   });
+
+  test.todo('should throw an error when a schedule is not found');
 });
