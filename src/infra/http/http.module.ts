@@ -3,6 +3,7 @@ import { SchedulesRepository } from '@app/repositories/schedules-repository';
 import { CreateClient } from '@app/use-cases/create-client';
 import { DeleteClient } from '@app/use-cases/delete-client';
 import { FindAllClients } from '@app/use-cases/find-all-clients';
+import { CancelSchedule } from '@app/use-cases/schedules/cancel-schedule';
 import { CreateSchedule } from '@app/use-cases/schedules/create-schedule';
 import { FindAllSchedules } from '@app/use-cases/schedules/find-all-schedules';
 import { FindSchedule } from '@app/use-cases/schedules/find-schedule';
@@ -22,6 +23,7 @@ import { SchedulesController } from './controllers/schedules.controller';
     CreateSchedule,
     FindSchedule,
     FindAllSchedules,
+    CancelSchedule,
     {
       provide: ClientsRepository,
       useClass: InMemoryClientsRepository,

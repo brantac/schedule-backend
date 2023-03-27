@@ -1,4 +1,5 @@
 import { SchedulesRepository } from '@app/repositories/schedules-repository';
+import { Injectable } from '@nestjs/common';
 
 interface CancelScheduleRequest {
   id: string;
@@ -6,6 +7,7 @@ interface CancelScheduleRequest {
 
 type CancelScheduleResponse = void;
 
+@Injectable()
 export class CancelSchedule {
   constructor(private schedulesRepository: SchedulesRepository) {}
 
