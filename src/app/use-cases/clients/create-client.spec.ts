@@ -1,5 +1,5 @@
 import { InMemoryClientsRepository } from '@test/repositories/in-memory-clients-repository';
-import { CreateClient } from './create-client';
+import { CreateClient } from '../clients/create-client';
 
 describe('Create client use case', () => {
   it('should create a new client', async () => {

@@ -1,6 +1,6 @@
 import { ClientsRepository } from '@app/repositories/clients-repository';
 import { Injectable } from '@nestjs/common';
-import { ClientNotFound } from './errors/client-not-found';
+import { ClientNotFound } from '@app/use-cases/errors/client-not-found';
 
 interface DeleteClientRequest {
   clientId: string;

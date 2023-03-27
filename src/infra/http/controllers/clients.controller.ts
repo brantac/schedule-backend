@@ -1,9 +1,9 @@
 import { CreateClientBody } from '../dtos/create-client-body';
 import { ClientViewModel } from '../view-models/client-view-model';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateClient } from '@app/use-cases/create-client';
-import { DeleteClient } from '@app/use-cases/delete-client';
-import { FindAllClients } from '@app/use-cases/find-all-clients';
+import { CreateClient } from '@app/use-cases/clients/create-client';
+import { DeleteClient } from '@app/use-cases/clients/delete-client';
+import { FindAllClients } from '@app/use-cases/clients/find-all-clients';
 
 @Controller('clients')
 export class ClientsController {

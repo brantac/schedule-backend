@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Client } from '../entities/client';
-import { ClientsRepository } from '../repositories/clients-repository';
+import { Client } from '../../entities/client';
+import { ClientsRepository } from '../../repositories/clients-repository';
 
 interface CreateClientRequest {
   name: string;
