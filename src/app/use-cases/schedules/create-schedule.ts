@@ -7,7 +7,9 @@ type CreateScheduleRequest = Pick<
   'clientId' | 'service' | 'scheduledDate' | 'time'
 >;
 
-type CreateScheduleResponse = void;
+interface CreateScheduleResponse {
+  schedule: Schedule;
+}
 
 @Injectable()
 export class CreateSchedule {
@@ -18,13 +20,15 @@ export class CreateSchedule {
   ): Promise<CreateScheduleResponse> {
     const { clientId, scheduledDate, service, time } = request;
 
-    this.schedulesRepository.create(
-      new Schedule({
-        clientId,
-        scheduledDate,
-        service,
-        time,
-      }),
-    );
+    const schedule = new Schedule({
+      clientId,
+      scheduledDate,
+      service,
+      time,
+    });
+
+    this.schedulesRepository.create(schedule);
+
+    return { schedule };
   }
 }
