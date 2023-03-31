@@ -19,12 +19,14 @@ export class SchedulesController {
   async create(@Body() body: CreateScheduleBody) {
     const { clientId, scheduledDate, service, time } = body;
 
-    await this.createSchedule.execute({
+    const { schedule } = await this.createSchedule.execute({
       clientId,
       scheduledDate: new Date(scheduledDate),
       service,
       time,
     });
+
+    return { schedule: ScheduleViewModel.toHttp(schedule) };
   }
 
   @Get('findAll')
